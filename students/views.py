@@ -6,6 +6,11 @@ from .forms import StudentForm
 from .models import Student
 
 
+def home(request):
+    """Home page."""
+    return render(request, "home.html", {"title": "Home"})
+
+
 def student_create(request):
     """Create a new student."""
     if request.method == "POST":
