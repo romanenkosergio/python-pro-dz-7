@@ -3,7 +3,6 @@ import re
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm, Select, DateInput
 
-from .constants import SUBJECT_CHOICES
 from .models import Teacher
 
 
@@ -11,10 +10,6 @@ class TeacherForm(ModelForm):
     class Meta:
         model = Teacher
         fields = "__all__"
-        widgets = {
-            'subject': Select(choices=[(subject, subject) for subject in SUBJECT_CHOICES]),
-            'birthday': DateInput(attrs={'type': 'date'})
-        }
 
     def clean_first_name(self):
         first_name = self.cleaned_data['first_name']
